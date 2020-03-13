@@ -2,3 +2,6 @@ endpoint: ${env:PRISMA_ENDPOINT}
 datamodel: datamodel.prisma
 secret: ${env:PRISMA_SECRET}
 # prisma deploy -e ../config/dev.env
+# before connect to "http://localhost:4466/<APP_NAME>/<STAGE>"
+# run "prisma token" to generate a token and put that token in
+# your playground's authenization header
