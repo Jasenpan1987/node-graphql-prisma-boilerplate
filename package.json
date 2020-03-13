@@ -1,0 +1,54 @@
+{
+  "name": "graphql-basics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "heroku-postbuild": "babel src --out-dir dist --copy-files",
+    "dev": "env-cmd -f ./config/dev.env nodemon --ext js,graphql --exec babel-node src/index.js",
+    "dev2": "env-cmd -f ./config/test.env nodemon --ext js,graphql --exec babel-node src/index.js",
+    "get-schema": "env-cmd -f ./config/dev.env graphql get-schema --project prisma",
+    "test": "env-cmd -f ./config/test.env jest --runInBand --watch"
+  },
+  "jest": {
+    "testTimeout": 50000,
+    "globalSetup": "./tests/jest/globalSetup.js",
+    "globalTeardown": "./tests/jest/globalTeardown.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "apollo-boost": "^0.4.7",
+    "babel-register": "^6.26.0",
+    "core-js": "^3.6.4",
+    "cross-fetch": "^3.0.4",
+    "graphql": "^0.13.2",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "@babel/runtime": "^7.8.7",
+    "apollo-cache-inmemory": "^1.2.10",
+    "apollo-client": "^2.4.2",
+    "apollo-link": "^1.2.3",
+    "apollo-link-error": "^1.1.1",
+    "apollo-link-http": "^1.5.5",
+    "apollo-link-ws": "^1.0.9",
+    "apollo-utilities": "^1.0.21",
+    "bcryptjs": "^2.4.3",
+    "env-cmd": "^10.1.0",
+    "graphql-cli": "^2.16.4",
+    "graphql-yoga": "^1.18.3",
+    "jsonwebtoken": "^8.5.1",
+    "prisma-binding": "^2.1.1",
+    "subscriptions-transport-ws": "^0.9.15"
+  }
+}
